@@ -1,0 +1,267 @@
+/* hole webpage */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
+    text-decoration: none;
+    list-style: none;
+}
+
+/* hole html container */
+:root{
+    --bg-color: white;
+    --text-color: black;
+    --main-color: gray;
+    --oter-color: #334155;
+    --big-font: 4.3rem;
+    --h2-font: 2.2rem;
+    --p-font: 1rem;
+}
+
+/*style for body section  */
+body{
+    color: black;
+    background-color: white;
+}
+
+/*style for hole header section  */
+
+header{
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 17px 11%;
+    border-bottom: 1px solid #f7f9fb;
+    transition: all .4s ease;
+    background-color: black;
+}
+
+/* style for header, a, logo class  */
+.logo img{
+    width: 100%;
+    height: auto;
+}
+
+/* style for header, ul, navbar class */
+.navbar{
+    display: flex;
+}
+
+/* style for header, ul, navbar class, a */
+.navbar a{
+    font-size: medium;
+    color: white;
+    font-weight: 400;
+    padding: 10px;
+    margin: 0 5px;
+    background: transparent;
+    border-radius: 30px;
+    transition: all .45s ease;
+}
+
+/* style for header, ul, navbar class, a, hover*/
+.navbar a:hover{
+    background-color: aqua;
+}
+
+/* style for header, ul, navbar class, a, active class kku hover*/
+/* only for home color fixed */
+.navbar a.active{
+    background-color: aqua;
+}
+
+/* style for header, div, icons*/
+
+.icons{
+    display: flex;
+    align-items: center;
+}
+
+/* style for header, icons class, i*/
+.icons i{
+    height: 50px;
+    width: 50px;
+    background-color: white;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: black;
+    font-style: 22px;
+    margin-right: 25px;
+    margin-left: 10px;
+    transition: all .45s ease;
+}
+
+/* style for header, icons class, i kku hover*/
+.icons i:hover{
+    transform: scale(0.9);
+}
+
+/* style for header, div, div, menu-icon class kku*/
+
+.menu-icon svg{
+    width: 33px;
+    height: 33px;
+}
+
+.menu-icon{
+    color: white;
+    font-size: 33px;
+    z-index: 10001;
+    cursor: pointer;
+    display: block;
+}
+
+/*style for hole section  */
+section{
+    padding: 100px 11% 90px;
+}
+
+/*style for section, home class*/
+.home{
+    height: 100vh;
+    width: 100%;
+    background-image: url(../img/background.svg);
+    background:linear-gradient(135deg,#ffffff,lightgreen);
+    background-size: cover;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    gap: 1.5rem;
+}
+
+/*style for section, div, home_img class */
+.home_img img{
+    width: 100%;
+    height: auto;
+    border-radius: 500px;
+}
+
+/*style for section, div, home_text class h4*/
+.home_text h4{
+    font-size: 25px;
+    font-weight: 500;
+    color: black;
+}
+
+/*style for section, div, home_text class h1*/
+.home_text h1{
+    font-size: 15px;
+    color: black;
+    line-height: 1.2;
+    margin: 25px 0 45px;
+}
+
+/*style for section, div, a, btn class*/
+.btn{
+    display: inline-block;
+    padding: 16px 30px;
+    background-color: black;
+    border-radius: 20px;
+    color: white;
+    font-size: 15px;
+    letter-spacing: 1px;
+    border-radius: 30px;
+    transition: all .45s ease;
+}
+
+/*style for section, div, a, btn hover*/
+.btn:hover{
+    letter-spacing: 2px;
+    opacity: 0.8;
+}
+
+.middle_text h2{
+    font-size: var(--h2-font);
+    color: black;
+    font-weight: 600;
+}
+
+/* style for secton, div, span  */
+span{
+    color: gray;
+}
+
+/* style for secton, div, feature_content class  */
+.feature_content{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, auto));
+    gap: 2rem;
+    align-items: center;
+    margin-top: 5rem;
+}
+
+.row{
+    padding: 40px 30px;
+    background-color: #e3ffe6;
+    border-radius: 20px;
+    transition: all .45s ease;
+}
+
+.main_row{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    gap: 2rem;
+}
+
+.row-img img{
+    width: 170px;
+    height: auto;
+    max-width: 100%;
+}
+
+.row:hover img{
+        transform: scale(1.12) rotate(-2deg);
+        width: 250px;
+}
+.row_text h6{
+    font-size: 14px;
+    font-weight: 500;
+    color: black;
+    margin-bottom: 1rem;
+}
+
+.row_text h3{
+    margin-bottom: 3rem;
+    font-size: 26px;
+    font-weight: 600;
+}
+
+.row_btn{
+    display: inline-block;
+    padding: 12px 22px;
+    background-color: white;
+    color: black;
+    font-size: 15px;
+    border-radius: 30px;
+    transition: all .45s ease;
+}
+
+.row_btn:hover{
+    letter-spacing: 1px;
+    color: white;
+    background-color: black;
+}
+
+footer{
+    background-color: black;
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+    letter-spacing: 1px;
+    color: white;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}

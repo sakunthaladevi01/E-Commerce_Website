@@ -1,0 +1,285 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
+}
+
+body{
+    min-height: 100vh;
+    background: linear-gradient(gray,lightgreen,gray);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 60px 20px;
+}
+
+.payment-wrap{
+    width: 100%;
+    max-width: 850px;
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+/* -------- order summary -------- */
+.order-summary{
+    flex: 1 1 320px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 0 10px gray;
+    padding: 25px;
+    height: fit-content;
+}
+
+.order-summary h2{
+    margin-bottom: 15px;
+}
+
+.order-summary ul{
+    list-style: none;
+    margin-bottom: 15px;
+}
+
+.order-summary li{
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+}
+
+.order-summary .empty-msg{
+    color: gray;
+    font-size: 14px;
+}
+
+.order-total{
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+    font-size: 18px;
+    padding-top: 10px;
+}
+
+/* -------- payment form -------- */
+.payment-form{
+    flex: 1 1 380px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 0 10px gray;
+    padding: 25px;
+}
+
+.payment-form h1{
+    margin-bottom: 15px;
+}
+
+.payment-form label{
+    display: block;
+    margin-top: 12px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.payment-form input,
+.payment-form select{
+    width: 100%;
+    padding: 10px;
+    margin-top: 6px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.payment-form .row{
+    display: flex;
+    gap: 10px;
+}
+
+.payment-form .row > div{
+    flex: 1;
+}
+
+.payment-methods{
+    display: flex;
+    gap: 10px;
+    margin-top: 8px;
+    flex-wrap: wrap;
+}
+
+.payment-methods label{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 8px 12px;
+    margin-top: 0;
+    cursor: pointer;
+    font-weight: 400;
+}
+
+.payment-methods input{
+    width: auto;
+    margin: 0;
+}
+
+.card-fields{
+    display: none;
+}
+
+.card-fields.show{
+    display: block;
+}
+
+.pay-btn{
+    width: 100%;
+    margin-top: 20px;
+    background-color: #2193b0;
+    color: white;
+    cursor: pointer;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: .3s;
+}
+
+.pay-btn:hover{
+    background-color: #17708a;
+}
+
+.pay-btn:disabled{
+    background-color: gray;
+    cursor: not-allowed;
+}
+
+.field-error{
+    border: 1px solid #e74c3c !important;
+}
+
+.form-message{
+    display: block;
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: 500;
+}
+.form-message.error{ color: #e74c3c; }
+.form-message.success{ color: #2ecc71; }
+
+.order-success{
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.order-success h1{
+    color: #2ecc71;
+}
+
+.order-success a{
+    display: inline-block;
+    margin-top: 20px;
+    background-color: #2193b0;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+/* -------- invoice -------- */
+.invoice{
+    max-width: 500px;
+    margin: 25px auto 0;
+    text-align: left;
+    background: #fafafa;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 25px;
+}
+
+.invoice-header{
+    text-align: center;
+    border-bottom: 2px solid #333;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.invoice-header h2{
+    margin: 0;
+}
+
+.invoice-meta,
+.invoice-customer{
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.invoice-meta p,
+.invoice-customer p{
+    margin: 4px 0;
+}
+
+.invoice-table{
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.invoice-table th,
+.invoice-table td{
+    border-bottom: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.invoice-total{
+    display: flex;
+    justify-content: space-between;
+    font-weight: 700;
+    font-size: 16px;
+    padding-top: 10px;
+    border-top: 2px solid #333;
+}
+
+/* -------- order action buttons -------- */
+.order-actions{
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.order-actions button{
+    background-color: #2193b0;
+    color: white;
+    cursor: pointer;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    transition: .3s;
+}
+
+.order-actions button:hover{
+    background-color: #17708a;
+}
+
+/* -------- print only the invoice -------- */
+@media print{
+    body *{
+        visibility: hidden;
+    }
+    .invoice, .invoice *{
+        visibility: visible;
+    }
+    .invoice{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        margin: 0;
+        border: none;
+    }
+}

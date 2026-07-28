@@ -1,0 +1,87 @@
+body{
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    height: 50%;
+    background: linear-gradient(gray,lightgreen,gray);
+
+}
+h1{
+    text-align: center;
+}
+form{
+    width: 300px;
+    height: 550px;
+    margin: auto;
+    padding: 20px;
+    border-radius: 20px;
+    /* background: #f4f4f4; */
+    box-shadow: 0 0 10px gray;
+    background: linear-gradient(lightgreen,gray,lightgreen);
+}
+
+form:hover{
+    transform: translateY(-10px) scale(1.03);
+    background: white;
+}
+
+/* ---------- password field with show/hide toggle ---------- */
+
+.password-field{
+    position: relative;
+    display: inline-block;
+    width: 90%;
+}
+
+.password-input{
+    padding: 10px 40px 10px 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+    width: 105%;
+    box-sizing: border-box;
+}
+
+.toggle-password{
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: gray;
+    transition: color 0.25s ease;
+}
+
+.toggle-password:hover{
+    color: black;
+}
+
+input{
+    padding: 10px 40px 10px 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+    width: 95%;
+    box-sizing: border-box;
+}
+
+button{
+    display: block;
+    margin: 0 auto;
+    background-color: blue;
+    color: white;
+    cursor: pointer;
+    width: 100px;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 10px;
+}
+
+button:hover{
+    background-color: darkblue;
+    transform: scale(1.05);
+}
+
+a{
+    margin-left: 70px;
+}

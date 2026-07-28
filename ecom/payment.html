@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KARSJ Shop | Payment</title>
+    <link rel="icon" type="image/svg+xml" href="/ecom/image/logo-k-icon.svg">
+    <link rel="stylesheet" href="/ecom/payment.css">
+</head>
+<body>
+
+<div class="payment-wrap" id="paymentWrap">
+
+    <!-- order summary, filled in by JS from the cart -->
+    <div class="order-summary">
+        <h2>Order Summary</h2>
+        <ul id="orderItems"></ul>
+        <div class="order-total">
+            <span>Total</span>
+            <span id="orderTotal">₹0</span>
+        </div>
+    </div>
+
+    <!-- payment form -->
+    <div class="payment-form">
+        <h1>Payment Details</h1>
+        <form id="paymentForm">
+
+            <label for="fullname">Full Name</label>
+            <input type="text" id="fullname" placeholder="Enter your name" required>
+
+            <label for="address">Delivery Address</label>
+            <input type="text" id="address" placeholder="House no, street, city" required>
+
+            <div class="row">
+                <div>
+                    <label for="pincode">Pincode</label>
+                    <input type="text" id="pincode" placeholder="600001" maxlength="6" required>
+                </div>
+                <div>
+                    <label for="phone">Phone Number</label>
+                    <input type="text" id="phone" placeholder="10 digit number" maxlength="10" required>
+                </div>
+            </div>
+
+            <label>Payment Method</label>
+            <div class="payment-methods">
+                <label><input type="radio" name="method" value="card" checked>Card</label>
+                <label><input type="radio" name="method" value="upi">UPI</label>
+                <label><input type="radio" name="method" value="cod">Cash on Delivery</label>
+            </div>
+
+            <div class="card-fields show" id="cardFields">
+                <label for="cardnumber">Card Number</label>
+                <input type="text" id="cardnumber" placeholder="1234 5678 9012 3456" maxlength="16">
+
+                <div class="row">
+                    <div>
+                        <label for="expiry">Expiry (MM/YY)</label>
+                        <input type="text" id="expiry" placeholder="MM/YY" maxlength="5">
+                    </div>
+                    <div>
+                        <label for="cvv">CVV</label>
+                        <input type="text" id="cvv" placeholder="123" maxlength="3">
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="pay-btn" id="payBtn">Place Order</button>
+        </form>
+    </div>
+
+</div>
+
+<!-- shown after a successful order -->
+<div class="order-success" id="orderSuccess" style="display:none;">
+    <h1>Order Placed Successfully!</h1>
+    <p>Thank you for shopping with us. A confirmation has been noted for your order.</p>
+
+    <!-- printable invoice -->
+    <div class="invoice" id="invoice">
+        <div class="invoice-header">
+            <h2><img src="/ecom/logo02.svg" alt=""></h2>
+            <p>Order Invoice</p>
+        </div>
+        <div class="invoice-meta">
+            <p><strong>Order ID:</strong> <span id="invOrderId"></span></p>
+            <p><strong>Date:</strong> <span id="invDate"></span></p>
+        </div>
+        <div class="invoice-customer">
+            <p><strong>Name:</strong> <span id="invName"></span></p>
+            <p><strong>Address:</strong> <span id="invAddress"></span></p>
+            <p><strong>Phone:</strong> <span id="invPhone"></span></p>
+            <p><strong>Payment Method:</strong> <span id="invMethod"></span></p>
+        </div>
+        <table class="invoice-table">
+            <thead>
+                <tr><th>Item</th><th>Qty</th><th>Price</th><th>Subtotal</th></tr>
+            </thead>
+            <tbody id="invItems"></tbody>
+        </table>
+        <div class="invoice-total">
+            <span>Total</span>
+            <span id="invTotal">₹0</span>
+        </div>
+    </div>
+
+    <div class="order-actions">
+        <button type="button" id="downloadPdfBtn">Download Invoice (PDF)</button>
+        <button type="button" id="printInvoiceBtn">Print Invoice</button>
+        <a href="/ecom/home.html">Continue Shopping</a>
+    </div>
+</div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="/ecom/payment.js"></script>
+    <script src="/ecom/main.js"></script>
+    
+</body>
+</html>
