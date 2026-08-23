@@ -228,7 +228,7 @@
         // still generate the PDF, just without the logo image
         buildPdf(order, null);
       };
-      logoImg.src = "/ecom/logo02.png";
+      logoImg.src = "logo02.png";
     });
   }
 
