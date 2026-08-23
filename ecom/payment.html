@@ -1,121 +1,354 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>KARSJ Shop | Payment</title>
+
     <link rel="icon" type="image/svg+xml" href="image/logo-k-icon.svg">
     <link rel="stylesheet" href="payment.css">
 </head>
+
 <body>
 
-<div class="payment-wrap" id="paymentWrap">
+    <!-- ================= PAYMENT SECTION ================= -->
+    <div class="payment-wrap" id="paymentWrap">
 
-    <!-- order summary, filled in by JS from the cart -->
-    <div class="order-summary">
-        <h2>Order Summary</h2>
-        <ul id="orderItems"></ul>
-        <div class="order-total">
-            <span>Total</span>
-            <span id="orderTotal">₹0</span>
+        <!-- ORDER SUMMARY -->
+        <div class="order-summary">
+            <h2>Order Summary</h2>
+
+            <ul id="orderItems">
+                <!-- Items are loaded from localStorage -->
+            </ul>
+
+            <div class="order-total">
+                <span>Total</span>
+                <span id="orderTotal">₹0</span>
+            </div>
         </div>
-    </div>
 
-    <!-- payment form -->
-    <div class="payment-form">
-        <h1>Payment Details</h1>
-        <form id="paymentForm">
 
-            <label for="fullname">Full Name</label>
-            <input type="text" id="fullname" placeholder="Enter your name" required>
+        <!-- PAYMENT FORM -->
+        <div class="payment-form">
 
-            <label for="address">Delivery Address</label>
-            <input type="text" id="address" placeholder="House no, street, city" required>
+            <h1>Payment Details</h1>
 
-            <div class="row">
-                <div>
-                    <label for="pincode">Pincode</label>
-                    <input type="text" id="pincode" placeholder="600001" maxlength="6" required>
-                </div>
-                <div>
-                    <label for="phone">Phone Number</label>
-                    <input type="text" id="phone" placeholder="10 digit number" maxlength="10" required>
-                </div>
-            </div>
+            <form id="paymentForm">
 
-            <label>Payment Method</label>
-            <div class="payment-methods">
-                <label><input type="radio" name="method" value="card" checked>Card</label>
-                <label><input type="radio" name="method" value="upi">UPI</label>
-                <label><input type="radio" name="method" value="cod">Cash on Delivery</label>
-            </div>
+                <!-- NAME -->
+                <label for="fullname">Full Name</label>
+                <input
+                    type="text"
+                    id="fullname"
+                    name="fullname"
+                    placeholder="Enter your name"
+                    autocomplete="name"
+                    required
+                >
 
-            <div class="card-fields show" id="cardFields">
-                <label for="cardnumber">Card Number</label>
-                <input type="text" id="cardnumber" placeholder="1234 5678 9012 3456" maxlength="16">
 
+                <!-- ADDRESS -->
+                <label for="address">Delivery Address</label>
+                <input
+                    type="text"
+                    id="address"
+                    name="address"
+                    placeholder="House no, street, city"
+                    autocomplete="street-address"
+                    required
+                >
+
+
+                <!-- PINCODE + PHONE -->
                 <div class="row">
+
                     <div>
-                        <label for="expiry">Expiry (MM/YY)</label>
-                        <input type="text" id="expiry" placeholder="MM/YY" maxlength="5">
+                        <label for="pincode">Pincode</label>
+                        <input
+                            type="text"
+                            id="pincode"
+                            name="pincode"
+                            placeholder="600001"
+                            maxlength="6"
+                            inputmode="numeric"
+                            required
+                        >
                     </div>
+
                     <div>
-                        <label for="cvv">CVV</label>
-                        <input type="text" id="cvv" placeholder="123" maxlength="3">
+                        <label for="phone">Phone Number</label>
+                        <input
+                            type="text"
+                            id="phone"
+                            name="phone"
+                            placeholder="10 digit number"
+                            maxlength="10"
+                            inputmode="numeric"
+                            autocomplete="tel"
+                            required
+                        >
                     </div>
+
                 </div>
+
+
+                <!-- PAYMENT METHOD -->
+                <label>Payment Method</label>
+
+                <div class="payment-methods">
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="method"
+                            value="card"
+                            checked
+                        >
+                        Card
+                    </label>
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="method"
+                            value="upi"
+                        >
+                        UPI
+                    </label>
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="method"
+                            value="cod"
+                        >
+                        Cash on Delivery
+                    </label>
+
+                </div>
+
+
+                <!-- CARD DETAILS -->
+                <div class="card-fields show" id="cardFields">
+
+                    <label for="cardnumber">Card Number</label>
+
+                    <input
+                        type="text"
+                        id="cardnumber"
+                        name="cardnumber"
+                        placeholder="1234567890123456"
+                        maxlength="16"
+                        inputmode="numeric"
+                    >
+
+
+                    <div class="row">
+
+                        <div>
+                            <label for="expiry">Expiry (MM/YY)</label>
+
+                            <input
+                                type="text"
+                                id="expiry"
+                                name="expiry"
+                                placeholder="MM/YY"
+                                maxlength="5"
+                                inputmode="numeric"
+                            >
+                        </div>
+
+                        <div>
+                            <label for="cvv">CVV</label>
+
+                            <input
+                                type="password"
+                                id="cvv"
+                                name="cvv"
+                                placeholder="123"
+                                maxlength="3"
+                                inputmode="numeric"
+                            >
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PAYMENT BUTTON -->
+                <button
+                    type="submit"
+                    class="pay-btn"
+                    id="payBtn"
+                >
+                    Place Order
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= SUCCESS SECTION ================= -->
+
+    <div
+        class="order-success"
+        id="orderSuccess"
+        style="display: none;"
+    >
+
+        <h1>Order Placed Successfully!</h1>
+
+        <p>
+            Thank you for shopping with us.
+            Your order has been placed successfully.
+        </p>
+
+
+        <!-- ================= INVOICE ================= -->
+
+        <div class="invoice" id="invoice">
+
+            <div class="invoice-header">
+
+                <h2>
+                    <img
+                        src="logo02.svg"
+                        alt="KARSJ Logo"
+                        style="max-width:150px; max-height:60px;"
+                    >
+                </h2>
+
+                <p>Order Invoice</p>
+
             </div>
 
-            <button type="submit" class="pay-btn" id="payBtn">Place Order</button>
-        </form>
+
+            <!-- ORDER INFORMATION -->
+
+            <div class="invoice-meta">
+
+                <p>
+                    <strong>Order ID:</strong>
+                    <span id="invOrderId"></span>
+                </p>
+
+                <p>
+                    <strong>Date:</strong>
+                    <span id="invDate"></span>
+                </p>
+
+            </div>
+
+
+            <!-- CUSTOMER INFORMATION -->
+
+            <div class="invoice-customer">
+
+                <p>
+                    <strong>Name:</strong>
+                    <span id="invName"></span>
+                </p>
+
+                <p>
+                    <strong>Address:</strong>
+                    <span id="invAddress"></span>
+                </p>
+
+                <p>
+                    <strong>Phone:</strong>
+                    <span id="invPhone"></span>
+                </p>
+
+                <p>
+                    <strong>Payment Method:</strong>
+                    <span id="invMethod"></span>
+                </p>
+
+            </div>
+
+
+            <!-- INVOICE TABLE -->
+
+            <table class="invoice-table">
+
+                <thead>
+
+                    <tr>
+                        <th>Item</th>
+                        <th>Qty</th>
+                        <th>Price</th>
+                        <th>Subtotal</th>
+                    </tr>
+
+                </thead>
+
+                <tbody id="invItems">
+                    <!-- Invoice items inserted by payment.js -->
+                </tbody>
+
+            </table>
+
+
+            <!-- TOTAL -->
+
+            <div class="invoice-total">
+
+                <span>Total</span>
+
+                <span id="invTotal">
+                    ₹0
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= ACTION BUTTONS ================= -->
+
+        <div class="order-actions">
+
+            <button
+                type="button"
+                id="downloadPdfBtn"
+            >
+                Download Invoice (PDF)
+            </button>
+
+            <button
+                type="button"
+                id="printInvoiceBtn"
+            >
+                Print Invoice
+            </button>
+
+            <a href="home.html">
+                Continue Shopping
+            </a>
+
+        </div>
+
     </div>
 
-</div>
 
-<!-- shown after a successful order -->
-<div class="order-success" id="orderSuccess" style="display:none;">
-    <h1>Order Placed Successfully!</h1>
-    <p>Thank you for shopping with us. A confirmation has been noted for your order.</p>
+    <!-- ================= JAVASCRIPT ================= -->
 
-    <!-- printable invoice -->
-    <div class="invoice" id="invoice">
-        <div class="invoice-header">
-            <h2><img src="logo02.svg" alt=""></h2>
-            <p>Order Invoice</p>
-        </div>
-        <div class="invoice-meta">
-            <p><strong>Order ID:</strong> <span id="invOrderId"></span></p>
-            <p><strong>Date:</strong> <span id="invDate"></span></p>
-        </div>
-        <div class="invoice-customer">
-            <p><strong>Name:</strong> <span id="invName"></span></p>
-            <p><strong>Address:</strong> <span id="invAddress"></span></p>
-            <p><strong>Phone:</strong> <span id="invPhone"></span></p>
-            <p><strong>Payment Method:</strong> <span id="invMethod"></span></p>
-        </div>
-        <table class="invoice-table">
-            <thead>
-                <tr><th>Item</th><th>Qty</th><th>Price</th><th>Subtotal</th></tr>
-            </thead>
-            <tbody id="invItems"></tbody>
-        </table>
-        <div class="invoice-total">
-            <span>Total</span>
-            <span id="invTotal">₹0</span>
-        </div>
-    </div>
+    <!-- jsPDF -->
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js">
+    </script>
 
-    <div class="order-actions">
-        <button type="button" id="downloadPdfBtn">Download Invoice (PDF)</button>
-        <button type="button" id="printInvoiceBtn">Print Invoice</button>
-        <a href="home.html">Continue Shopping</a>
-    </div>
-</div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <!-- Payment JavaScript -->
     <script src="payment.js"></script>
+
+    <!-- Main JavaScript -->
     <script src="main.js"></script>
-    
+
 </body>
 </html>
